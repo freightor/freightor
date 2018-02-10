@@ -57,6 +57,7 @@ coverage.xml
 local_settings.py
 settings.py
 migrations/
+freightor/settings/__init__.py
 
 # Flask stuff:
 instance/
@@ -109,3 +110,6 @@ venv.bak/
 
 # vscode stuff
 .vscode/
+
+#decouple environment vars
+settings.ini

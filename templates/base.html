@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Meta Info -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Freightor - CRM for freight forwarders">
+    <meta name="keywords" content="">
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Linear Icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body>
+    {% block body %} {% endblock %}
+    <!-- Footer -->
+    <footer id="footer" class="row page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <p style="padding: 20px;">
+                        <span class="fa fa-copyright"></span> Copyright 2018</p>
+                </div>
+                <div class="col-sm">
+                    <ul id="social-list" class="nav flex-sm-row justify-content-end">
+                        <li class="list-item">
+                            <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                        </li>
+                        <li class="list-item">
+                            <a href="https://twitter.com/" target="_blank" class="fa fa-twitter"></a>
+                        </li>
+                        <li class="list-item">
+                            <a href="https://www.linkedin.com/" target="_blank" class="fa fa-linkedin"></a>
+                        </li>
+                        <li class="list-item">
+                            <a href="https://github.com/" target="_blank" class="fa fa-github"></a>
+                        </li>
+                        <li class="list-item">
+                            <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/website.js' %}"></script>
+
+    <!-- Devless -->
+    <script src="http://freightor-contact.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="88b4ece1fa14b9100e711edc9c52f2a8"></script>
+</body>
+
+</html>
