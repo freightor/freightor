@@ -57,7 +57,7 @@ coverage.xml
 local_settings.py
 settings.py
 migrations/
-freightor/settings/__init__.py
+*.sqlite3
 
 # Flask stuff:
 instance/
