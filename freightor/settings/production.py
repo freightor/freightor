@@ -7,5 +7,5 @@ ALLOWED_HOSTS = ["herokuapp.com"]
 SECRET_KEY = os.environ.get('SECRET_KEY')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
