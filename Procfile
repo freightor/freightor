@@ -1,0 +1,1 @@
+web: gunicorn freightor.wsgi --log-file -
