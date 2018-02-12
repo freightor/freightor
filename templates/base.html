@@ -33,7 +33,43 @@
 
 <body>
     <div class="container-fluid">
+        <!-- Nav bar Top -->
+        <div class="row">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    Freightor
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-sm-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features" onclick="slowScroll(this);return false;">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pricing" onclick="slowScroll(this);return false;">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team" onclick="slowScroll(this);return false;">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" onclick="slowScroll(this);return false;">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://medium.com" target="_blank">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         {% block body %} {% endblock %}
+        <!-- Scroll Button -->
+        <button class="btn rounded-circle" id="top-scroll" onclick="upScroll()">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+        <!-- Scroll Button -->
         <!-- Footer -->
         <footer id="footer" class="row page-section">
             <div class="container">

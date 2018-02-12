@@ -1,36 +1,4 @@
 {% extends "base.html" %} {% block title %}Freightor{% endblock %}{% block body %}
-<!-- Nav bar Top -->
-<div class="row">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            Freightor
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-sm-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#pricing">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#team">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://medium.com" target="_blank">Blog</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
 <!-- Intro -->
 <section id="intro" class="row page-section padded-section">
     <div class="container">
@@ -43,7 +11,7 @@
                 This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
             </p>
 
-            <a class="btn btn-primary" href="#" role="button">
+            <a class="btn btn-primary" href="#contact" role="button" onclick="slowScroll(this);return false;">
                 Be The First to Know
                 <span class="fa fa-arrow-right"></span>
             </a>
@@ -377,9 +345,4 @@
 </section>
 <!-- Contact Us -->
 
-<!-- Scroll Button -->
-<button class="btn rounded-circle" id="top-scroll" onclick="upScroll()">
-    <i class="fa fa-chevron-up"></i>
-</button>
-<!-- Scroll Button -->
 {% endblock %}
