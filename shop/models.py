@@ -41,6 +41,7 @@ class Category(BaseModel):
     description = models.TextField()
     parent_category = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, blank=True)
+    slug = models.SlugField()
 
 
 class Product(BaseModel):
@@ -57,9 +58,22 @@ class Product(BaseModel):
 class Order(BaseModel):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product, through="OrderItem")
+    total_amount = models.DecimalField(null=True, blank=True)
+    STATUS_CHOICES = (
+        ("pending", "Pending"),
+        ("on_hold", "On Hold"),
+        ("processing", "Processing"),
+        ("in_transit", "In Transit"),
+        ("delivered", "Delivered")
+    )
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default="pending")
 
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+    unit_price = models.DecimalField()
+    price = models.DecimalField()
