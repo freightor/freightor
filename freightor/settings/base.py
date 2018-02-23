@@ -111,7 +111,11 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 
+# Media Management
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'website:index'
+
+# Cart Management
+CART_SESSION_ID = "cart_id"

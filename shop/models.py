@@ -45,13 +45,13 @@ class Category(BaseModel):
 
 class Product(BaseModel):
     name = models.CharField(max_length=255)
-    album = models.OneToOneField(Album, on_delete=models.CASCADE)
     description = models.TextField()
-    old_price = models.FloatField()
-    new_price = models.FloatField()
+    old_price = models.DecimalField()
+    new_price = models.DecimalField()
     quantity_in_stock = models.IntegerField()
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    album = models.OneToOneField(Album, on_delete=models.CASCADE)
 
 
 class Order(BaseModel):
