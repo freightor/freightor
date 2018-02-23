@@ -64,7 +64,9 @@
                 </div>
             </nav>
         </div>
-        {% block body %} {% endblock %}
+        <div id="main-body">
+            {% block body %} {% endblock %}
+        </div>
         <!-- Scroll Button -->
         <button class="btn rounded-circle" id="top-scroll" onclick="upScroll()">
             <i class="fa fa-chevron-up"></i>

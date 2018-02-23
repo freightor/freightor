@@ -1,6 +1,9 @@
 body {
     font-family: Nunito, Serif;
 }
+#main-body {
+    padding-top: 50px;
+}
 .container{
     width: 100%;
 }

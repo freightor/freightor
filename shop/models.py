@@ -1,24 +1,38 @@
 from django.db import models
+from django.contrib.auth.models import User
 from common.models import BaseModel
 from addresses.models import Address
+from accounts.models import Profile
+from companies.models import Employee
 
 # Create your models here.
 
 
-class Merchant(BaseModel):
-    logo = models.ImageField()
+class Store(BaseModel):
+    logo = models.FileField()
     name = models.CharField(max_length=255)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
     description = models.TextField()
     rating = models.FloatField()
 
 
-class Album(BaseModel):
-    name = models.CharField(null=True, blank=True)
+class Merchant(BaseModel, Profile):
+    store = models.ForeignKey(
+        Store, on_delete=models.CASCADE, null=True, blank=True)
 
 
-class Picture(BaseModel):
-    filename = models.FileField()
+class Album(models.Model):
+    name = models.CharField(null=True, blank=True, max_length=100)
+
+
+def get_upload_directory(instance, filename):
+    import os
+    file_ext = os.path.splitext(filename)[1]
+    return "album_{1}/pic_{2}{3}".format(instance.album.id, instance.id, file_ext)
+
+
+class Picture(models.Model):
+    attachment = models.ImageField(upload_to=get_upload_directory)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
 
 
@@ -29,11 +43,23 @@ class Category(BaseModel):
         "self", on_delete=models.CASCADE, null=True, blank=True)
 
 
-class Item(BaseModel):
+class Product(BaseModel):
     name = models.CharField(max_length=255)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.OneToOneField(Album, on_delete=models.CASCADE)
     description = models.TextField()
     old_price = models.FloatField()
     new_price = models.FloatField()
     quantity_in_stock = models.IntegerField()
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
+class Order(BaseModel):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, through="OrderItem")
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
