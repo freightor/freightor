@@ -116,7 +116,11 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = 'website:index'
+# LOGIN_REDIRECT_URL = 'website:index'
+LOGOUT_REDIRECT_URL = 'accounts:login'
 
 # Cart Management
 CART_SESSION_ID = "cart_id"
+
+#Users
+DEFAULT_PASSWORD = os.environ.get("NEW_USER_PASSWORD")

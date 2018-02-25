@@ -24,5 +24,12 @@ def admin_merchant_required(function):
     return wrap
 
 
-def logout_required(function):
-    pass
+def employee_required(function):
+    def wrap(request, *args, **kwargs):
+        if request.user.employee:
+            return function(request, *args, **kwargs)
+        raise PermissionDenied
+
+    wrap.__doc__ = function.__doc__
+    wrap.__name__ = function.__name__
+    return wrap

@@ -1,27 +1,16 @@
-{% extends "base.html" %} {% load widget_tweaks %} {% block title %}Signup{% endblock %} {% block body %}
-<div class="padded-section offset-sm-3">
-    <p class="display-4 text-center">Sign Up</p>
+{% extends "base.html" %} 
+{% load widget_tweaks %} 
+{% block title %}Sign Up{% endblock %} 
+{% block content %}
     <form method="post">
-        {% csrf_token %} {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %} {% for field in form.visible_fields %}
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field|add_class:'form-control' }} {% for error in field.errors %}
-            <span class="help-block">
-                {{ error }}
-            </span>
-            {% endfor %}
+        <div class="fph5 m0a">
+            {% include "form.html" %}
+            <div class="fph ">
+                <button type="submit" class="pdlr10p pdtb10 rc20 m0a acc">Sign Up</button>
+            </div>
         </div>
-        {% endfor %}
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">
-                <span class="fa fa-ok"></span> Register
-            </button>
-        </div>
-        {% comment %}
         <div>
-            <a href="{% url 'password_reset' %}">Forgot Password?</p>
-                <a href="{% url 'signup' %}">Don't have an account? Sign Up</p>
-        </div> {% endcomment %}
+            <a href="{% url 'accounts:login' %}">Have an account? Sign in</p>
+        </div>
     </form>
-</div>
 {% endblock %}

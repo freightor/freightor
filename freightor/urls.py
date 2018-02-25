@@ -15,13 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("website.urls", namespace="website")),
-    path("accounts/", include("accounts.urls", namespace="accounts"))
-    # path("addresses/", include("addresses.urls", namespace="addresses")),
-    # path("companies/", include("companies.urls", namespace="companies")),
-    # path("shop/", include("shop.urls", namespace="shop")),
-    # path("transactions/", include("transactions.urls", namespace="transactions"))
-]
+    path("accounts/", include("accounts.urls", namespace="accounts")),
+    path("addresses/", include("addresses.urls", namespace="addresses")),
+    path("companies/", include("companies.urls", namespace="companies")),
+    path("shop/", include("shop.urls", namespace="shop")),
+    path("password_reset", auth_views.password_reset, {
+         "template_name": "accounts/password_reset.html"}, name="password_reset"),
+    path("password_reset/done", auth_views.password_reset_done,
+         {"template_name": "accounts/password_reset_done.html"}, name="password_reset_done"),
+    path("password_reset/confirm", auth_views.password_reset_confirm,
+         {"template_name": "accounts/password_reset_confirm.html"}, name="password_reset_confirm"),
+    path("password_reset/complete", auth_views.password_reset_complete,
+         {"template_name": "accounts/password_reset_complete.html"}, name="password_reset_complete"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

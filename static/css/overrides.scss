@@ -1,0 +1,14 @@
+@import "colors";
+$accent-color : #F8694A;
+body{
+  overflow: auto;
+}
+
+button.acc{
+  background-color: nth($colors, 4);
+  color: nth($colors, 2);
+
+  &:hover{
+    background-color: fade_out($accent-color, 0.2);
+  }
+}

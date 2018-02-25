@@ -15,3 +15,9 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        if hasattr(self,"name"):
+            return self.name
+        else:
+            return self.user.get_full_name()

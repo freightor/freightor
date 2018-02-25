@@ -9,3 +9,6 @@ class Address(BaseModel):
     postal_address = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
+
+    class Meta:
+        verbose_name_plural = "addresses"

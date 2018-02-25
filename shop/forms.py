@@ -1,14 +1,14 @@
 from django import forms
-from shop.models import Product, Order
+from shop.models import Product, Order, Store
 
 
 class ProductForm(forms.ModelForm):
     pictures = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={"multiple": True}))
+        required=False, widget=forms.ClearableFileInput(attrs={"multiple": True}))
 
     class Meta:
         model = Product
-        fields = ("name", "pictures", "description", "old_price",
+        fields = ("name", "cover_image","pictures", "description", "old_price",
                   "new_price", "quantity_in_stock", "category")
 
 
@@ -20,3 +20,9 @@ class CartItemAddForm(forms.Form):
         choices=CART_QUANTITY_CHOICES, coerce=int)
     update_quantity = forms.BooleanField(
         required=False, initial=False, widget=forms.HiddenInput)
+
+
+class StoreForm(forms.ModelForm):
+    class Meta:
+        model = Store
+        fields = ("name", "description")
