@@ -1,5 +1,5 @@
 from django import forms
-from shop.models import Product, Order, Store
+from shop.models import Product, Order, Store, Category
 
 
 class ProductForm(forms.ModelForm):
@@ -10,6 +10,9 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ("name", "cover_image","pictures", "description", "old_price",
                   "new_price", "quantity_in_stock", "category")
+    def __init__(self,is_parent,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.fields["category"].queryset = Category.objects.filter(is_parent=True)
 
 
 CART_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]

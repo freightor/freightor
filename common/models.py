@@ -21,3 +21,4 @@ class BaseModel(models.Model):
             return self.name
         else:
             return self.user.get_full_name()
+

@@ -50,6 +50,7 @@ class Picture(models.Model):
 
 class Category(BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    is_parent = models.BooleanField(default=True)
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     parent_category = models.ForeignKey(
