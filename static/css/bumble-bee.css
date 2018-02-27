@@ -61,6 +61,11 @@ a:hover, a:active, a:focus {
 .npe {
   pointer-events: none; }
 
+
+.pe{
+    pointer-events: all;
+}
+
 i.fa:not(.fa-calendar), button span {
   pointer-events: none; }
 
@@ -25994,6 +25999,9 @@ a:hover, a:active, a:focus {
 .npe {
   pointer-events: none; }
 
+.pe {
+  pointer-events: all; }
+
 i.fa:not(.fa-calendar), button span {
   pointer-events: none; }
 
@@ -51864,4 +51872,22 @@ button[data-tooltip] {
     white-space: normal;
     width: 100%; }
 
+  .ctr-h{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+.ctr-v{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .ctr-hv{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+  }
 /*# sourceMappingURL=bumble-bee.css.map */

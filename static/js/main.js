@@ -3,10 +3,10 @@
 
   // NAVIGATION
   var responsiveNav = $('#responsive-nav'),
-    catToggle = $('#responsive-nav .category-nav .category-header'),
-    catList = $('#responsive-nav .category-nav .category-list'),
-    menuToggle = $('#responsive-nav .menu-nav .menu-header'),
-    menuList = $('#responsive-nav .menu-nav .menu-list');
+    catToggle = responsiveNav.find('.category-nav .category-header'),
+    catList = responsiveNav.find('.category-nav .category-list'),
+    menuToggle = responsiveNav.find('.menu-nav .menu-header'),
+    menuList = responsiveNav.find('.menu-nav .menu-list');
 
   catToggle.on('click', function() {
     menuList.removeClass('open');
